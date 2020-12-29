@@ -33,13 +33,9 @@ function generatePassword() {
   }
   else {
     var lowerCaseYes = confirm("Do you wan't lowercase letters?");
-    console.log(lowerCaseYes);
     var upperCaseYes = confirm("Do you want uppercase letters?");
-    console.log(upperCaseYes);
     var numericYes = confirm("Do you want numbers?");
-    console.log(numericYes);
     var specialYes = confirm("Do you want special characters?");
-    console.log(specialYes);
 
     // Declared options object
     var options = {
