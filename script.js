@@ -23,7 +23,11 @@ function generatePassword() {
   console.log(typeof passLength);
 
   // Test for passLength to be between 8 and 128
-  if (passLength < 8 || passLength > 128) {
+  if (isNaN(passLength) === true) {
+    alert("Password length must be no less than 8 characters and no more than 128.");
+    return "Password length must be no less than 8 characters and no more than 128."
+  }
+  else if (passLength < 8 || passLength > 128) {
     alert("Password length must be no less than 8 characters and no more than 128.");
     return "Password length must be no less than 8 characters and no more than 128."
   }
@@ -62,6 +66,12 @@ function generatePassword() {
       randomStr += options.special;
       console.log(randomStr);
     }
+    if (randomStr == undefined) {
+      alert("You must choose at least one character type.");
+      return "You must choose at least one character type.";
+    }
+    console.log(randomStr);
+    console.log(typeof randomStr);
 
     // For loop to select random characters based on conditionals
     for (i = 0; i < passLength; i++) {
