@@ -49,35 +49,39 @@ function generatePassword() {
       special: " !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
     };
 
-    // Conditionals based on confirm messages
-    if (lowerCaseYes === true) {
-      randomStr += options.lowerCase;
-      console.log(randomStr);
-    }
-    if (upperCaseYes === true) {
-      randomStr += options.upperCase;
-      console.log(randomStr);
-    }
-    if (numericYes === true) {
-      randomStr += options.numeric;
-      console.log(randomStr);
-    }
-    if (specialYes === true) {
-      randomStr += options.special;
-      console.log(randomStr);
-    }
-    if (randomStr == undefined) {
+    // Test for at least 1 character type
+    if (lowerCaseYes === false
+      && upperCaseYes === false
+      && numericYes === false
+      && specialYes === false) {
       alert("You must choose at least one character type.");
       return "You must choose at least one character type.";
     }
-    console.log(randomStr);
-    console.log(typeof randomStr);
+    else {
+      // Conditionals based on confirm messages
+      if (lowerCaseYes === true) {
+        randomStr += options.lowerCase;
+        console.log(randomStr);
+      }
+      if (upperCaseYes === true) {
+        randomStr += options.upperCase;
+        console.log(randomStr);
+      }
+      if (numericYes === true) {
+        randomStr += options.numeric;
+        console.log(randomStr);
+      }
+      if (specialYes === true) {
+        randomStr += options.special;
+        console.log(randomStr);
+      }
 
-    // For loop to select random characters based on conditionals
-    for (i = 0; i < passLength; i++) {
-      newPass += randomStr[Math.floor(Math.random() * randomStr.length)];
-      console.log(newPass);
+      // For loop to select random characters based on conditionals
+      for (i = 0; i < passLength; i++) {
+        newPass += randomStr[Math.floor(Math.random() * randomStr.length)];
+        console.log(newPass);
+      }
+      return newPass;
     }
-    return newPass;
   }
 }
