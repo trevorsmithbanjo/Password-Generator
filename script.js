@@ -27,9 +27,11 @@ function generatePassword() {
     numeric: "0123456789",
     special: " !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
   };
-  var randomStr = options.lowerCase[Math.floor(Math.random() * options.lowerCase.length)];
-  for (var i = 0; i < passLength; i++) {
-    newPass += randomStr[i];
+  var randomStr = options.lowerCase + options.upperCase + options.numeric + options.special;
+
+  for (i = 0; i < passLength; i++) {
+    newPass += randomStr[Math.floor(Math.random() * randomStr.length)];
     console.log(newPass);
   }
+  return newPass;
 }
