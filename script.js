@@ -15,12 +15,11 @@ generateBtn.addEventListener("click", writePassword);
 
 // generatePassword function
 function generatePassword() {
+
   // Declared variables
   var newPass = "";
   var randomStr = "";
   var passLength = parseInt(prompt("How many characters do you want?"));
-  console.log(passLength);
-  console.log(typeof passLength);
 
   // Test for passLength to be between 8 and 128
   if (isNaN(passLength) === true) {
@@ -32,6 +31,7 @@ function generatePassword() {
     return "Password length must be no less than 8 characters and no more than 128."
   }
   else {
+    // User can confirm character type
     var lowerCaseYes = confirm("Do you wan't lowercase letters?");
     var upperCaseYes = confirm("Do you want uppercase letters?");
     var numericYes = confirm("Do you want numbers?");
@@ -57,25 +57,20 @@ function generatePassword() {
       // Conditionals based on confirm messages
       if (lowerCaseYes === true) {
         randomStr += options.lowerCase;
-        console.log(randomStr);
       }
       if (upperCaseYes === true) {
         randomStr += options.upperCase;
-        console.log(randomStr);
       }
       if (numericYes === true) {
         randomStr += options.numeric;
-        console.log(randomStr);
       }
       if (specialYes === true) {
         randomStr += options.special;
-        console.log(randomStr);
       }
 
       // For loop to select random characters based on conditionals
       for (i = 0; i < passLength; i++) {
         newPass += randomStr[Math.floor(Math.random() * randomStr.length)];
-        console.log(newPass);
       }
       return newPass;
     }
